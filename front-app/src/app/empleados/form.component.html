@@ -1,0 +1,82 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{titulo}}</div>
+  <div class="card-body">
+    <form >
+      <div class="form-group row">
+        <label for="Nombre" class="col-form-label col-sm-2 ">Nombre</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.nombre" name = "nombre">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Apellido" class="col-form-label col-sm-2 ">Apellido</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.apellido" name = "apellido">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="numero_documento" class="col-form-label col-sm-2 ">Numero Documento</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.numero_documento" name = "numero_documento">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Correo" class="col-form-label col-sm-2 ">Correo</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.correo" name = "correo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Telefono" class="col-form-label col-sm-2 ">Telefono</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.telefono" name = "telefono">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Activo" class="col-form-label col-sm-2 ">Activo</label>
+        <div class = "col-sm-1">
+          <input value = "checked" (click) = "changeValue(checked)" type="checkbox" class="form-control" [(ngModel)] = "empleado.activo" name = "activo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Salario" class="col-form-label col-sm-2 ">Salario</label>
+        <div class = "col-sm-6">
+          <input type="text" class="form-control" [(ngModel)] = "empleado.salario" name = "salario">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Departamento" class="col-form-label col-sm-2 ">Departamento</label>
+        <div class = "col-sm-6">
+          <select [compareWith] = "compararDepartamento" type="text" class="form-control" [(ngModel)] = "empleado.departamento" name = "departamento">
+            <option *ngFor = "let departamento of departamentos" [ngValue]="departamento">{{departamento.nombre}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Funciones" class="col-form-label col-sm-2 ">Funciones</label>
+        <div class = "col-sm-6">
+          <select [compareWith] = "compararFunciones" type="text" class="form-control" [(ngModel)] = "empleado.departamento" name = "departamento">
+            <option *ngFor = "let funcion of funciones" [ngValue]="funcion">{{funcion.nombre}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="button" (click) = 'create()' *ngIf = "!empleado.id else elseBlock">Crear</button>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click) = 'update()'>Editar</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

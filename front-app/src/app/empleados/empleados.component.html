@@ -1,0 +1,52 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Empleados</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de Empleados</h5>
+<div class = "my-2 text-left">
+  <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/empleados/form']">Crear empleado</button>
+</div>
+<div *ngIf="empleados?.length==0" class="alert alert-info">
+  No hay registros en la base de datos¡
+</div>
+    <table class="table table-bordered table-striped table-responsive" *ngIf="empleados?.length>0">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nombre</th>
+          <th>apellido</th>
+          <th>numero documento</th>
+          <th>correo</th>
+          <th>telefono</th>
+          <th>activo</th>
+          <th>salario</th>
+          <th>departamento</th>
+          <th>
+            editar
+          </th>
+          <th>
+            eliminar
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.id }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.numero_documento }}</td>
+          <td>{{ empleado.correo }}</td>
+          <td>{{ empleado.telefono }}</td>
+          <td>{{ empleado.activo ? 'Activo' : 'Inactivo'}}</td>
+          <td>{{ empleado.salario }}</td>
+          <td>{{ empleado.departamento.nombre}}</td>
+          <td>
+            <button type="button" name="editar" [routerLink] = "['/empleados/form', empleado.id]" class="btn btn-primary">editar</button>
+          </td>
+          <td>
+            <button type="button" name="eliminar" (click) = 'delete(empleado)' class="btn btn-danger">eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+Front:
+1. Instalar modulos de node: npm install.
+2. Levantar servidor LOCAL: ng serve.
+
+Back:
+1. Abrir la aplicacion desde intelliJ.
+2. Descargar dependencias de gradle.
+3. Ejecutar desde intelliJ o se puede utilizar el siguiente comando gradle springboot.
+
+SQL:
+Script dentro de el proyecto.
+Nombre base de datos: db_reto
+Usuario: root
+Clave base de datos: sasa
+
+NOTA: procurar que sea el mismo nombre de base de datos y contraseña, ya que esto esta configurado de esta forma en el back. Todas las ejecuciones con de forma local.
+NOTA2:Documentacion de versiones y demas, en el readme.md.
